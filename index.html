@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Web Undangan</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            /* *{
+                border: 1px red solid;
+            } */
+            /* Custom CSS */
+            .fixed-left {
+                position: fixed;
+                left: 0;
+                top: 0;
+                height: 100%;
+            }
+            .scroll-right {
+                overflow-y: auto;
+                height: 100vh;
+                margin-left: 66.6667%; /* 2/3 dari lebar container */
+            }
+            .mainwrapper {
+                background: #fefefe;
+                display: flex;
+                width: 100%;
+                height: 650px;
+                justify-content: center;
+                align-items: center;
+            }
+
+            img.imgthumb {
+                width: 150px;
+                border-radius: 10px;
+            }
+
+            /* overlay by webprogramminunpas and modified by nelayankode.com*/
+            .overlay {
+                width: 0;
+                height: 0;
+                overflow: hidden;
+                position: fixed;
+                top: 0;
+                left: 0;
+                background: rgba(0, 0, 0, 0);
+                z-index: 9999;
+                transition: .8s;
+                text-align: center;
+                padding: 150px 0;
+
+            }
+
+            .overlay:target {
+                width: auto;
+                height: auto;
+                bottom: 0;
+                right: 0;
+                background: rgba(0, 0, 0, .7);
+            }
+
+            .overlay .img {
+                margin: auto;
+                position: relative;
+                width: 80%;
+                padding: 80px;
+                height: auto;
+                box-shadow: 2px 2px 7px rgba(0, 0, 0, .5);
+            }
+
+            .overlay .img .kotak {
+                /* background-color: #aec289; */
+                background: rgb(174,194,137);
+                background: radial-gradient(circle, rgba(174,194,137,1) 0%, rgba(254,243,199,1) 100%);
+                width: 30%;
+                margin: auto;
+                height: auto;
+            }
+
+            .overlay:target .img {
+                animation: zoomDanFade 1s;
+            }
+
+            .overlay .close {
+                position: absolute;
+                top: 2%;
+                right: 2%;
+                margin-left: -20px;
+                color: white;
+                text-decoration: none;
+                line-height: 14px;
+                padding: 5px;
+                opacity: 0;
+            }
+
+            .overlay:target .close {
+                animation: slideDownFade .5s .5s forwards;
+            }
+
+            /* overlay by webprogramminunpas and modified by nelayankode.com 2 */ 
+            .overlay1 {
+                width: 0;
+                height: 0;
+                overflow: hidden;
+                position: fixed;
+                top: 0;
+                left: 0;
+                background: rgba(0, 0, 0, 0);
+                z-index: 9999;
+                transition: .8s;
+                text-align: center;
+                padding: 150px 0;
+            }
+
+            .overlay1:target {
+                width: auto;
+                height: auto;
+                bottom: 0;
+                right: 0;
+                background: rgba(0, 0, 0, .7);
+            }
+
+            .overlay1 .img1 {
+                margin: auto;
+                position: relative;
+                width: 80%;
+                padding: 80px;
+                height: auto;
+                box-shadow: 2px 2px 7px rgba(0, 0, 0, .5);
+            }
+
+            .overlay1 .img1 .kotak1 {
+                /* background-color: #aec289; */
+                background: rgb(174,194,137);
+                background: radial-gradient(circle, rgba(174,194,137,1) 0%, rgba(254,243,199,1) 100%);
+                width: 30%;
+                margin: auto;
+                height: auto;
+            }
+
+            .overlay1 .img1 .kotak2 {
+                /* background-color: #aec289; */
+                background: rgb(174,194,137);
+                background: radial-gradient(circle, rgba(174,194,137,1) 0%, rgba(254,243,199,1) 100%);
+                width: 30%;
+                margin: auto;
+                height: auto;
+                margin-top: 30px;
+            }
+
+            .overlay1:target .img1 {
+                animation: zoomDanFade 1s;
+            }
+
+            .overlay1 .close1 {
+                position: absolute;
+                top: 2%;
+                right: 2%;
+                margin-left: -20px;
+                color: white;
+                text-decoration: none;
+                line-height: 14px;
+                padding: 5px;
+                opacity: 0;
+            }
+
+            .overlay1:target .close1 {
+                animation: slideDownFade .5s .5s forwards;
+            }
+
+            /* animasi */
+            @keyframes zoomDanFade {
+                0% {
+                    transform: scale(0);
+                    opacity: 0;
+                }
+
+                100% {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+            }
+
+            @keyframes slideDownFade {
+                0% {
+                    opacity: 0;
+                    margin-top: -20px;
+                }
+
+                100% {
+                    opacity: 1;
+                    margin-top: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+
+        <!-- Konten Kiri -->
+        <div class="fixed-left w-2/3 p-4" style="background-image: url(dist/img/foto_01.png); background-size: cover;">
+            <div class="absolute bottom-40 right-10">
+                <!-- <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                <lord-icon
+                    src="https://cdn.lordicon.com/wtfdpwey.json"
+                    trigger="loop"
+                    colors="primary:#ffffff,secondary:#aec289"
+                    style="width:60px;height:60px">
+                </lord-icon> -->
+                <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                <lord-icon
+                    src="https://cdn.lordicon.com/rxufjlal.json"
+                    trigger="loop"
+                    delay="2000"
+                    colors="primary:#ffffff"
+                    style="width:40px;height:40px">
+                </lord-icon>
+            </div>
+            <h2 class="text-white absolute bottom-32 right-10">Scroll ke bawah</h2>
+            <h1 class="text-white text-3xl absolute bottom-20 right-10 font-serif">The Wedding of Jeno & Karina</h1>
+
+            <!-- Audio -->
+            <audio id="myAudio" autoplay loop>
+                <source src="about_you.mp3" type="audio/mp3">
+            </audio>
+        
+            <button onclick="toggleAudio()">
+                <div class="bg-white opacity-80 shadow-lg w-10 h-10 rounded-full flex justify-center items-center absolute bottom-8 left-5">
+                    <i id="playPauseIcon" class="fas fa-play"><img src="dist/img/icon.png" alt="Icon"></i>
+                </div>
+            </button>
+        
+            <script>
+                var audio = document.getElementById("myAudio");
+                var playPauseIcon = document.getElementById("playPauseIcon");
+        
+                function toggleAudio() {
+                    if (audio.paused) {
+                        audio.play();
+                        playPauseIcon.classList.remove("fa-play");
+                        playPauseIcon.classList.add("fa-pause");
+                        playPauseIcon.src = "dist/img/iconn.png";
+                    } else {
+                        audio.pause();
+                        playPauseIcon.classList.remove("fa-pause");
+                        playPauseIcon.classList.add("fa-play");
+                        playPauseIcon.src = "dist/img/icon.png";
+                    }
+                }
+
+                window.onload = function() {
+                    toggleAudio();
+                };
+            </script>
+            <!-- END -->
+        </div>
+
+        <!-- Konten Kanan -->
+        <div class="scroll-right w-1/3 bg-amber-100">
+            <!-- Awalan -->
+            <div class="text-center">
+                <img src="dist/img/foto1.jpeg" alt="Foto Prewed">
+                <div class="relative bottom-48">
+                    <h1 class="mt-4 text-white">our wedding</h1>
+                    <h1 class="text-3xl mt-4 text-white font-serif">Jeno & Karina</h1>
+                    <hr class="border-white border-t-2 w-10 my-4 mx-auto">
+                    <h1 class="mt-4 text-white">14 Februari 2024</h1>
+                </div>
+            </div>
+            <!-- END -->
+
+            <!-- Pembukaan Surat -->
+            <div class="flex justify-center items-center text-center relative bottom-36">
+                <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                <lord-icon
+                    src="https://cdn.lordicon.com/hpxruznz.json"
+                    trigger="loop"
+                    delay="2000"
+                    colors="primary:#ffffff,secondary:#08a88a"
+                    style="width:120px;height:120px">
+                </lord-icon>
+            </div>
+            <p class="text-center p-10 relative bottom-40 text-neutral-700">“Dan di antara tanda-tanda kekuasaan Allah ialah diciptakan-Nya untukmu pasangan hidup dari jenismu sendiri supaya kamu merasa tentram di samping-Nya dan dijadikan-Nya rasa kasih sayang di antara kamu. Sesungguhnya yang demikian itu menjadi bukti kekuasaan Allah bagi kaum yang berfikir.“</p>
+            <h1 class="text-center p-4 relative bottom-52 font-semibold text-neutral-700">(QS. Ar- Rum 21)</h1>
+            <hr class="border-white border-t-1 w-full my-4 mx-auto relative bottom-40">
+            <!-- END -->
+
+            <!-- We Found Love -->
+            <div class="flex flex-wrap justify-center items-center relative bottom-24">
+                <img src="dist/img/foto2.jpeg" alt="Prewed" class="rounded-t-lg w-80">
+                <div class="w-96 h-56 bg-white rounded-t-lg mt-0 -top-20 drop-shadow-xl p-6 align-middle">
+                    <h1 class="text-center text-xl text-neutral-700 font-semibold font-serif">We Found Love</h1>
+                    <h1 class="text-center text-4xl text-neutral-700 font-bold">....</h1>
+                    <h1 class="text-center mt-5 text-neutral-700 font-serif">“You don’t love someone for their looks, or their clothes or their fancy car, but because they sing a song only you can hear.”</h1>
+                </div>
+            </div>
+
+            <div class="flex justify-center items-center relative bottom-11">
+                <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                <lord-icon
+                    src="https://cdn.lordicon.com/rjzlnunf.json"
+                    trigger="loop"
+                    delay="2000"
+                    colors="primary:#ffffff,secondary:#aec289"
+                    style="width:120px;height:120px">
+                </lord-icon>
+            </div>
+
+            <div class="flex flex-wrap justify-center items-center relative">
+                <div class="w-96 h-56 bg-white rounded-b-lg mt-0 -top-20 drop-shadow-xl p-6 align-middle">
+                    <h1 class="text-center text-xl text-neutral-700 font-semibold font-serif">One Love</h1>
+                    <h1 class="text-center text-4xl text-neutral-700 font-bold">....</h1>
+                    <h1 class="text-center mt-5 text-neutral-700 font-serif">“Happy marriages begin when we marry the ones we love, and they blossom when we love the ones we marry.”</h1>
+                </div>
+                <img src="dist/img/foto3.jpeg" alt="Prewed" class="rounded-b-lg w-80">
+            </div>
+            <!-- END -->
+
+            <!-- Profile -->
+            <div class="mt-14 bg-white w-full flex items-center justify-center">
+                <div class="border-x-4 border-amber-100 px-16">
+                    <div class="mt-10">
+                        <img src="dist/img/Karina.jpg" alt="Karina" class="w-44 mx-auto">
+                    </div>
+                    <h1 class="text-center text-2xl mt-5 font-serif text-neutral-700">Karina Alexander M.Sn</h1>
+                    <h2 class="text-center font-serif text-neutral-500">Putri dari</h2>
+                    <h2 class="text-center font-serif text-neutral-500">Bpk Bianaka Tsanjdra</h2>
+                    <h2 class="text-center font-serif text-neutral-500">& Ibu Yoona Exander</h2>
+                    <div class=" flex justify-center items-center group">
+                        <div class="bg-amber-100 w-8 h-8 rounded-lg mt-5 shadow-lg group-hover:scale-110 transition duration-500 ease-in-out">
+                            <img src="dist/img/ig.png" alt="Instagram">
+                        </div>
+                    </div>
+
+                    <div class="mt-20">
+                        <img src="dist/img/Jeno.jpg" alt="Jeno" class="w-44 mx-auto">
+                    </div>
+                    <h1 class="text-center text-2xl mt-5 font-serif text-neutral-700">Jeno Wiliam M.H</h1>
+                    <h2 class="text-center font-serif text-neutral-500">Putra dari</h2>
+                    <h2 class="text-center font-serif text-neutral-500">Bpk Yohan Wiliam</h2>
+                    <h2 class="text-center font-serif text-neutral-500">& Ibu Wendy Athena</h2>
+                    <div class=" flex justify-center items-center group mb-14">
+                        <div class="bg-amber-100 w-8 h-8 rounded-lg mt-5 shadow-lg group-hover:scale-110 transition duration-500 ease-in-out">
+                            <img src="dist/img/ig.png" alt="Instagram">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END -->
+
+            <!-- Acara -->
+            <div class="flex flex-wrap justify-center items-center mt-10">
+                <img src="dist/img/foto_4.jpeg" alt="Prewed" class="w-96">
+                <div class="w-96 h-auto bg-white mt-0 -top-20 drop-shadow-xl p-6 align-middle">
+                    <div class="flex justify-center items-center">
+                        <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                        <lord-icon
+                            src="https://cdn.lordicon.com/ahatttod.json"
+                            trigger="loop"
+                            delay="2000"
+                            colors="primary:#aec289,secondary:#fef3c7"
+                            style="width:100px;height:100px">
+                        </lord-icon>
+                    </div>
+                    <h1 class="text-center text-2xl text-neutral-700 font-serif mt-5">Akad Nikah</h1>
+                    <h1 class="text-center text-neutral-500 text-sm mt-5">Minggu, 14 Februari 2024</h1>
+                    <h1 class="text-center text-neutral-500 text-sm mt-2">08.00 s/d 10.00</h1>
+                    <h1 class="text-center text-2xl text-neutral-700 font-serif mt-5">Alila Villa Uluwatu Resort</h1>
+                    <h1 class="text-center text-neutral-500 text-sm mt-2">Jl. Belimbing Sari Tambiyak, Pecatu, South Kuta, Badung Regency, Bali</h1>
+                    <div class="flex justify-center items-center mt-8">
+                        <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                        <lord-icon
+                            src="https://cdn.lordicon.com/kbtmbyzy.json"
+                            trigger="loop"
+                            delay="2000"
+                            colors="primary:#fef3c7,secondary:#aec289"
+                            style="width:100px;height:100px">
+                        </lord-icon>
+                    </div>
+                    <h1 class="text-center text-2xl text-neutral-700 font-serif mt-5">Resepsi Pernikahan</h1>
+                    <h1 class="text-center text-neutral-500 text-sm mt-5">Minggu, 14 Februari 2024</h1>
+                    <h1 class="text-center text-neutral-500 text-sm mt-2">10.30 s/d 17.00</h1>
+                    <h1 class="text-center text-2xl text-neutral-700 font-serif mt-5">Alila Villa Uluwatu Resort</h1>
+                    <h1 class="text-center text-neutral-500 text-sm mt-2">Jl. Belimbing Sari Tambiyak, Pecatu, South Kuta, Badung Regency, Bali</h1>
+
+                    <div class="flex justify-center items-center text-center mt-10 mb-2 group">
+                        <div class="bg-amber-100 shadow-lg w-32 h-7 group-hover:scale-105 transition duration-300 ease-in-out text-neutral-700 font-serif">
+                            <a href="https://www.google.com/maps/place/Alila+Villas+Uluwatu/@-8.8468651,115.1349367,17z/data=!4m9!3m8!1s0x2dd25add7437e1c1:0xb608f145222330a6!5m2!4m1!1i2!8m2!3d-8.8460434!4d115.1371054!16s%2Fg%2F1v2gb4_0?entry=ttu" target="_blank">Lihat Lokasi</a>
+                        </div>
+                    </div>
+                </div>
+                <img src="dist/img/foto_6.jpeg" alt="Prewed" class="w-96">
+            </div>
+            <!-- END -->
+
+            <!-- Background White -->
+            <div class="mt-10 bg-white h-auto w-full justify-center  items-center">
+                <!-- Timer -->
+                <img class="-z-10" src="dist/img/foto_5.jpeg" alt="Prewed">
+                <div class="relative -top-32 text-center">
+                    <h1 class="z-10 text-xl text-white font-semibold font-serif mb-3">Hari yang ditunggu</h1>
+
+                <!-- Display the countdown timer in an element -->
+                <p id="demo"></p>
+                    <script>
+                // Set the date we're counting down to
+                var countDownDate = new Date("Feb 14, 2024 08:00:00").getTime();
+
+                // Update the count down every 1 second
+                var x = setInterval(function() {
+
+                // Get today's date and time
+                var now = new Date().getTime();
+
+                // Find the distance between now and the count down date
+                var distance = countDownDate - now;
+
+                // Time calculations for days, hours, minutes and seconds
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Display the result in the element with id="demo"
+                document.getElementById("demo").innerHTML ="<div class='flex text-neutral-700 justify-center gap-3'>"+ "<div class='w-20 h-20 bg-amber-100 flex justify-center items-center'>"+days + "<br> Day </div>"+"<div class='w-20 h-20 bg-amber-100 flex justify-center items-center'>" + hours + "<br> Hours </div>"+"<div class='w-20 h-20 bg-amber-100 flex justify-center items-center'>"
+                + minutes + "<br> Mins </div>"+"<div class='w-20 h-20 bg-amber-100 flex justify-center items-center'>" + seconds + "<br> Secs </div>" +"</div>";
+
+                // If the count down is finished, write some text
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("demo").innerHTML = "EXPIRED";
+                }
+                }, 1000);
+                </script>
+                </div>
+                <!-- END -->
+                
+                <!-- RSVP -->
+                <div class="text-center relative bottom-20 p-6">
+                    <h1 class="text-2xl text-neutral-700 font-serif">Konfirmasi Kehadiran</h1>
+                    <p class="text-neutral-700 text-sm mt-5">Kami tidak sabar menunggu hari pernikahan kami bersama Bapak/Ibu/Saudara/i, mohon konfirmasi kehadiran Bapak/Ibu/Saudara/i. Terima kasih.</p>
+                </div>
+
+                <div class="p-6 relative bottom-28">
+                    <h1 class="text-neutral-700 mb-3">Nama Lengkap</h1>
+                    <input type="text" class="border-b-2 rounded-xl border-neutral-500 px-2 w-96 active:border-transparent" placeholder="Nama Lengkap">
+                    <h1 class="text-neutral-700 mt-5 mb-3">Kehadiran?</h1>
+                    <input type="radio" class="form-radio text-neutral-700" name="pilihan" id="option1" value="option1">
+                    <label for="option1" class="ml-1 text-neutral-700">Ya, saya akan hadir.</label>
+                    <input type="radio" class="form-radio text-neutral-700 ml-5" name="pilihan" id="option2" value="option2">
+                    <label for="option2" class="ml-1 text-neutral-700">Maaf tidak bisa.</label>
+                    <br>
+                    <button class="bg-amber-100 w-20 h-10 rounded-lg shadow-lg text-neutral-700 float-right mt-8 hover:bg-amber-200 transition duration-300 ease-in-out">Kirim</button>
+                </div>
+                <!-- END -->
+
+                <!-- Hadiah -->
+                <div class="flex justify-center items-center mx-32 relative bottom-8">
+                    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                    <lord-icon
+                        src="https://cdn.lordicon.com/nkmsrxys.json"
+                        trigger="loop"
+                        delay="2000"
+                        colors="primary:#404040,secondary:#aec289"
+                        style="width:100px;height:100px">
+                    </lord-icon>
+                </div>
+                <h1 class="text-center p-6 text-neutral-700 text-2xl font-serif relative bottom-10">Amplop Digital</h1>
+                <h4 class="text-center p-6 text-neutral-700 text-sm relative bottom-16">Bagi keluarga dan sahabat yang ingin mengirimkan hadiah, silakan mengirimkannya melalui tautan berikut:</h4>
+                <!-- Menampilkan thumbnail gambar -->
+                <div class="flex flex-wrap justify-center items-center gap-8 relative bottom-14">
+                    <a href="#gambar-1">
+                        <div class="thumb bg-amber-100 w-32 h-7 text-center">
+                            <h1 class="text-neutral-700">Kirim Hadiah</h1>
+                        </div>
+                    </a>
+                    <a href="#gambar-2">
+                    <div class="flex flex-wrap justify-center items-center gap-10">
+                        <div class="thumb bg-amber-100 w-32 h-7 text-center">
+                            <h1 class="text-neutral-700">Transfer Bank</h1>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Menampilkan popup gambar -->
+                <div class="overlay" id="gambar-1">
+                    <a href="#" class="close">
+                        <svg style="width:47px;height:47px" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2C6.47,2 2,6.47 2,12C2,17.53 6.47,22 12,22C17.53,22 22,17.53 22,12C22,6.47 17.53,2 12,2M14.59,8L12,10.59L9.41,8L8,9.41L10.59,12L8,14.59L9.41,16L12,13.41L14.59,16L16,14.59L13.41,12L16,9.41L14.59,8Z" />
+                        </svg>
+                    </a>
+                    <div class="img justify-center items-center bg-white w-full h-auto mx-20">
+                        <h1 class="text-2xl font-serif text-neutral-700 mb-5">Alamat Penerima</h1>
+                        <div class="kotak shadow-xl w-auto h-auto rounded-xl text-sm py-5 text-white">
+                            <h1 class="mx-8 mt-5">Alexander Home</h1>
+                            <h2 class="mx-8">085123456789</h2>
+                            <h2 class="mx-8 mt-5">Jl. Magelang – Yogyakarta KM.6,5,</h2>
+                            <h2 class="mx-8">Kutu Tegal, Sinduadi,</h2>
+                            <h2 class="mx-8 mb-5">Daerah Istimewa Yogyakarta 55284</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="overlay1" id="gambar-2">
+                    <a href="#" class="close1">
+                        <svg style="width:47px;height:47px" viewBox="0 0 24 24">
+                            <path fill="currentColor" d="M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2C6.47,2 2,6.47 2,12C2,17.53 6.47,22 12,22C17.53,22 22,17.53 22,12C22,6.47 17.53,2 12,2M14.59,8L12,10.59L9.41,8L8,9.41L10.59,12L8,14.59L9.41,16L12,13.41L14.59,16L16,14.59L13.41,12L16,9.41L14.59,8Z" />
+                        </svg>
+                    </a>
+                    <div class="img1 justify-center items-center bg-white w-full h-auto relative bottom-16">
+                        <h1 class="text-2xl font-serif text-neutral-700 mb-5">Nomor Rekening</h1>
+                        <div class="kotak1 shadow-xl w-auto h-auto rounded-xl text-sm py-5 text-white">
+                            <img src="dist/img/bca.webp" alt="BCA" class="bri m-auto w-20 mb-5">
+                            <h1 class="mx-8">Karina Alexander</h1>
+                            <h2 class="mx-8 mt-5">0092600263001</h2>
+                        </div>
+                        <div class="kotak2 shadow-xl w-auto h-auto rounded-xl text-sm py-5 text-white">
+                            <img src="dist/img/bca.webp" alt="BCA" class="bri m-auto w-20 mb-5">
+                            <h1 class="mx-8">Jeno Wiliam</h1>
+                            <h2 class="mx-8 mt-5">0083640046204</h2>
+                        </div>
+                    </div>
+                </div>
+                <!-- END -->
+
+                <!-- Memories -->
+                <div class="m-auto text-center p-6 relative top-16 mb-5">
+                    <h1 class="text-2xl font-serif text-neutral-700">Happy Moment</h1>
+                    <div class="flex justify-center items-center mx-32">
+                        <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+                        <lord-icon
+                            src="https://cdn.lordicon.com/vixtkkbk.json"
+                            trigger="loop"
+                            delay="2000"
+                            colors="primary:#404040,secondary:#aec289"
+                            style="width:80px;height:80px">
+                        </lord-icon>
+                    </div>
+                    <iframe width="360" height="200" src="https://www.youtube.com/embed/Mwg7kCRQfes?si=K9p97MCiM5GmUjdg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <!-- END -->
+            </div>
+            <!-- END -->
+
+            <!-- Photo -->
+            <div class="">
+                <img src="" id="image" class="block  m-auto transition delay-75 ease-in-out">
+
+                <script type="text/javascript">
+                    let image = document.getElementById('image');
+                    let images = ['./dist/img/a1.jpg', './dist/img/a2.jpg', './dist/img/a3.jpg', './dist/img/a4.jpg', './dist/img/a5.jpg', './dist/img/a6.jpg', './dist/img/a7.jpg', './dist/img/a8.jpg', './dist/img/a9.jpg'];
+
+                    setInterval(function() {
+                        let random = Math.floor(Math.random() * 9);
+                        image.src = images[random];
+                    }, 2500);
+                </script>
+            </div>
+            <!-- END -->
+
+            <!-- Komentar -->
+            <div class="mx-auto bg-amber-100 p-5 w-full h-auto">
+                <div class="bg-white w-96 p-4 mx-auto mt-5 mb-5 rounded-lg shadow-lg">
+                    <h1 class="text-neutral-700 font-serif text-center text-sm mt-5">Tinggalkan pesan/doa untuk kami ૮ • ﻌ - ა</h1>
+
+                    <h1 class="text-neutral-700 font-semibold mt-5">Jennie</h1>
+                    <p class="text-neutral-500 text-sm">Selamat menikah, selamat menjalani kehidupan pernikahan. Semoga Tuhan selalu menjaga kalian dan anak-anak kelak ˚ʚ♡ɞ˚.</p>
+
+                    <h1 class="text-neutral-700 font-semibold mt-5">Jaegar</h1>
+                    <p class="text-neutral-500 text-sm">Tetanggaku yang sudah jadi teman bermain dari kecil, selamat menikah! Semoga bahagia dan dilancarkan rezekinya selalu. Jangan lupakan teman kecilmu ini, ya!</p>
+
+                    <h1 class="text-neutral-700 font-semibold mt-5">Haerin</h1>
+                    <p class="text-neutral-500 text-sm">Saling mendukung, saling melengkapi, dan saling menghargai adalah tiga hal yang menguatkan sebuah ikatan cinta. Jadilah pasangan yang berbahagia. Selamat menempuh bahtera rumah tangga.</p>
+
+                    <h1 class="text-neutral-700 font-semibold mt-5">Jihyo</h1>
+                    <p class="text-neutral-500 text-sm">Kunci membangun hubungan pernikahan yang kuat dan harmonis adalah saling teguh memegang komitmen bersama. Selamat menikah, semoga menjadi pasangan yang abadi. </p>
+
+                    <h1 class="text-neutral-700 font-semibold mt-5">Mina</h1>
+                    <p class="text-neutral-500 text-sm">Temanku ini sudah punya gandengan, aku masih betah dalam kejombloan. Selamat menikah, teman. Aku pasti segera menyusulmu! </p>
+
+                    <h1 class="text-neutral-700 font-semibold mt-5">Tyuzu</h1>
+                    <p class="text-neutral-500 text-sm">Selamat menikah, sahabatku tersayang. Semoga kalian menjadi pasangan sejati sampai maut memisahkan, lekas dikaruniai keturunan yang saleh dan salehah. Aamiin. </p>
+
+                    <h1 class="text-neutral-700 font-semibold mt-5">Irene</h1>
+                    <p class="text-neutral-500 text-sm">Selamat menikah, sahabatku tersayang. Semoga kalian menjadi pasangan sejati sampai maut memisahkan, lekas dikaruniai keturunan yang saleh dan salehah. Aamiin.</p>
+                </div>
+
+                <h1 class="text-neutral-700 text-center font-serif mt-5">Terimakasih</h1>
+                <h1 class="text-neutral-700 text-center text-2xl font-bold font-serif mt-1 mb-10">Jeno & Karina</h1>
+            </div>
+            <!-- END -->
+
+            <!-- Penutup -->
+            <div class="mx-auto bg-white w-full py-2 h-auto">
+                <div class="border-y-2 border-neutral-700 m-auto">
+                    <h1 class="text-center text-neutral-700 font-serif text-sm mt-8">Made with ♡ by</h1>
+                    <h1 class="text-center text-red-200 font-bold">ʚ αzz✮няα ɞ</h1>
+                    <div class="flex justify-center items-center group relative bottom-4">
+                        <div class="bg-amber-100 w-8 h-8 rounded-lg mt-5 shadow-lg group-hover:scale-110 transition duration-500 ease-in-out">
+                            <img src="dist/img/ig.png" alt="Instagram">
+                        </div>
+                    </div>
+                    <h3 class="text-center text-neutral-700 text-sm">Backsound by :</h3>
+                    <h4 class="text-center text-neutral-700 text-sm italic">The 1975 - About You</h4>
+
+                    <h4 class="text-center text-neutral-700 text-xs mb-4 mt-5">© all rights reserved by Azzahra.</h4>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
