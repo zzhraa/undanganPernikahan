@@ -222,28 +222,30 @@
             <audio id="myAudio" autoplay loop>
                 <source src="about_you.mp3" type="audio/mp3">
             </audio>
-        
+
             <button onclick="toggleAudio()">
                 <div class="bg-white opacity-80 shadow-lg w-10 h-10 rounded-full flex justify-center items-center absolute bottom-8 left-5">
-                    <i id="playPauseIcon" class="fas fa-play"><img src="dist/img/icon.png" alt="Icon"></i>
+                    <i id="playPauseIcon" class="fas fa-play"></i>
+                    <img id="iconImage" src="dist/img/icon.png" alt="Icon">
                 </div>
             </button>
-        
+
             <script>
                 var audio = document.getElementById("myAudio");
                 var playPauseIcon = document.getElementById("playPauseIcon");
-        
+                var iconImage = document.getElementById("iconImage");
+
                 function toggleAudio() {
                     if (audio.paused) {
                         audio.play();
                         playPauseIcon.classList.remove("fa-play");
                         playPauseIcon.classList.add("fa-pause");
-                        playPauseIcon.src = "dist/img/iconn.png";
+                        iconImage.src = "dist/img/iconn.png";
                     } else {
                         audio.pause();
                         playPauseIcon.classList.remove("fa-pause");
                         playPauseIcon.classList.add("fa-play");
-                        playPauseIcon.src = "dist/img/icon.png";
+                        iconImage.src = "dist/img/icon.png";
                     }
                 }
 
@@ -252,6 +254,7 @@
                 };
             </script>
             <!-- END -->
+
         </div>
 
         <!-- Konten Kanan -->
